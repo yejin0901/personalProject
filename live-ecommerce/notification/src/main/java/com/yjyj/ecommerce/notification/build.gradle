@@ -1,0 +1,9 @@
+dependencies {
+    implementation project(':common')
+
+    // payment/infra에 JPA Repository가 있으면 필요
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    // payment/representation에 Controller가 있으면 필요
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+}
