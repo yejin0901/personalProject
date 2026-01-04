@@ -1,15 +1,15 @@
 package com.yjyj.ecommerce.live.infrastructure.adapter.out;
 
-import static com.example.mytv.common.CacheNames.VIDEO;
-import static com.example.mytv.common.CacheNames.VIDEO_LIST;
-import static com.example.mytv.common.RedisKeyGenerator.getVideoViewCountKey;
+import static com.yjyj.ecommerce.common.common.CacheNames.VIDEO;
+import static com.yjyj.ecommerce.common.common.CacheNames.VIDEO_LIST;
+import static com.yjyj.ecommerce.common.common.RedisKeyGenerator.getVideoViewCountKey;
 
-import com.example.mytv.adapter.out.jpa.video.VideoJpaEntity;
-import com.example.mytv.adapter.out.jpa.video.VideoJpaRepository;
-import com.example.mytv.application.port.out.LoadVideoPort;
-import com.example.mytv.application.port.out.SaveVideoPort;
-import com.example.mytv.common.RedisKeyGenerator;
-import com.example.mytv.domain.video.Video;
+import com.yjyj.ecommerce.common.common.RedisKeyGenerator;
+import com.yjyj.ecommerce.live.application.port.out.LoadVideoPort;
+import com.yjyj.ecommerce.live.application.port.out.SaveVideoPort;
+import com.yjyj.ecommerce.live.domain.video.Video;
+import com.yjyj.ecommerce.live.infrastructure.adapter.out.jpa.video.VideoJpaEntity;
+import com.yjyj.ecommerce.live.infrastructure.adapter.out.jpa.video.VideoJpaRepository;
 import java.util.Collections;
 import java.util.List;
 import org.springframework.cache.annotation.CacheEvict;
@@ -90,8 +90,8 @@ public class VideoPersistenceAdapter implements LoadVideoPort, SaveVideoPort {
         videoJpaRepository.findById(videoId)
             .ifPresent(videoJpaEntity -> {
                 // video:view-count:videoId
-                var viewCount = redisTemplate.opsForValue().get(RedisKeyGenerator.getVideoViewCountKey(videoId));
-                videoJpaEntity.updateViewCount(redisTemplate.opsForValue().get(RedisKeyGenerator.getVideoViewCountKey(videoId)));
+                var viewCount = redisTemplate.opsForValue().get(getVideoViewCountKey(videoId));
+                videoJpaEntity.updateViewCount(redisTemplate.opsForValue().get(getVideoViewCountKey(videoId)));
                 videoJpaRepository.save(videoJpaEntity);
 
                 redisTemplate.opsForSet().remove(RedisKeyGenerator.getVideoViewCountSetKey(), videoId);

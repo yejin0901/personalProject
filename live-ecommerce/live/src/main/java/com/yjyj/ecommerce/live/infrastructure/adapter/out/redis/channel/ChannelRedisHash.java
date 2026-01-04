@@ -1,8 +1,9 @@
 package com.yjyj.ecommerce.live.infrastructure.adapter.out.redis.channel;
 
-import static com.example.mytv.common.CacheNames.CHANNEL;
 
-import com.example.mytv.domain.channel.Channel;
+import static com.yjyj.ecommerce.common.common.CacheNames.CHANNEL;
+
+import com.yjyj.ecommerce.live.domain.channel.Channel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.springframework.data.annotation.Id;

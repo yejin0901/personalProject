@@ -1,7 +1,8 @@
 package com.yjyj.ecommerce.live.infrastructure.adapter.out;
 
-import com.example.mytv.application.port.out.CacheManagePort;
-import com.example.mytv.common.CacheNames;
+
+import com.yjyj.ecommerce.common.common.CacheNames;
+import com.yjyj.ecommerce.live.application.port.out.CacheManagePort;
 import java.util.Collections;
 import java.util.List;
 import org.springframework.data.redis.core.StringRedisTemplate;

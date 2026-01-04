@@ -11,10 +11,10 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-cache'   // CacheConfig 있으면
 
     implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
-    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+    api 'org.springframework.boot:spring-boot-starter-data-redis'
 
 
-    testImplementation 'org.springframework.boot:spring-boot-testcontainers' // 스프링 부트 3.1+ 권장
+    implementation 'org.springframework.boot:spring-boot-testcontainers' // 스프링 부트 3.1+ 권장
     testImplementation 'org.testcontainers:junit-jupiter'
     testImplementation 'org.testcontainers:testcontainers'
     testImplementation 'org.testcontainers:mongodb' // (선택) GenericContainer 대신 MongoDBContainer 사용 시

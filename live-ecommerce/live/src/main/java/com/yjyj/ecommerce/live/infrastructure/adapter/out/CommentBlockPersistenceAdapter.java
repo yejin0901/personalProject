@@ -1,7 +1,7 @@
 package com.yjyj.ecommerce.live.infrastructure.adapter.out;
 
-import com.example.mytv.application.port.out.CommentBlockPort;
-import com.example.mytv.common.RedisKeyGenerator;
+import com.yjyj.ecommerce.common.common.RedisKeyGenerator;
+import com.yjyj.ecommerce.live.application.port.out.CommentBlockPort;
 import java.util.Set;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;

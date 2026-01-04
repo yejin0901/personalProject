@@ -6,6 +6,7 @@ import com.yjyj.ecommerce.live.application.port.out.LoadChannelPort;
 import com.yjyj.ecommerce.live.application.port.out.SaveChannelPort;
 import com.yjyj.ecommerce.live.domain.channel.Channel;
 import com.yjyj.ecommerce.live.domain.channel.ChannelSnippet;
+import com.yjyj.ecommerce.live.domain.channel.ChannelStatistics;
 import com.yjyj.ecommerce.live.representation.in.api.dto.ChannelRequest;
 import java.time.LocalDateTime;
 import java.util.UUID;

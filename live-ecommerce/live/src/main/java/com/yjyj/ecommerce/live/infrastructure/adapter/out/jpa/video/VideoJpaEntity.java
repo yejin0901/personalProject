@@ -1,6 +1,6 @@
 package com.yjyj.ecommerce.live.infrastructure.adapter.out.jpa.video;
 
-import com.example.mytv.domain.video.Video;
+import com.yjyj.ecommerce.live.domain.video.Video;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import java.time.LocalDateTime;

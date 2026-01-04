@@ -1,8 +1,8 @@
 package com.yjyj.ecommerce.live.infrastructure.adapter.out;
 
-import com.example.mytv.application.port.out.MessagePort;
-import com.example.mytv.common.MessageTopics;
-import com.example.mytv.domain.message.NewVideoMessage;
+import com.yjyj.ecommerce.common.common.MessageTopics;
+import com.yjyj.ecommerce.live.application.port.out.MessagePort;
+import com.yjyj.ecommerce.live.domain.message.NewVideoMessage;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;

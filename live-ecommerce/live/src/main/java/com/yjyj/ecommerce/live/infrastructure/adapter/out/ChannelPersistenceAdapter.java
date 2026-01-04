@@ -1,12 +1,13 @@
 package com.yjyj.ecommerce.live.infrastructure.adapter.out;
 
-import com.example.mytv.adapter.out.jpa.channel.ChannelJpaEntity;
-import com.example.mytv.adapter.out.jpa.channel.ChannelJpaRepository;
-import com.example.mytv.adapter.out.redis.channel.ChannelRedisHash;
-import com.example.mytv.adapter.out.redis.channel.ChannelRedisRepository;
-import com.example.mytv.application.port.out.LoadChannelPort;
-import com.example.mytv.application.port.out.SaveChannelPort;
-import com.example.mytv.domain.channel.Channel;
+
+import com.yjyj.ecommerce.live.application.port.out.LoadChannelPort;
+import com.yjyj.ecommerce.live.application.port.out.SaveChannelPort;
+import com.yjyj.ecommerce.live.domain.channel.Channel;
+import com.yjyj.ecommerce.live.infrastructure.adapter.out.jpa.channel.ChannelJpaEntity;
+import com.yjyj.ecommerce.live.infrastructure.adapter.out.jpa.channel.ChannelJpaRepository;
+import com.yjyj.ecommerce.live.infrastructure.adapter.out.redis.channel.ChannelRedisHash;
+import com.yjyj.ecommerce.live.infrastructure.adapter.out.redis.channel.ChannelRedisRepository;
 import java.util.Optional;
 import org.springframework.stereotype.Component;
 

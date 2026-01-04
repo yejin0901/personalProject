@@ -1,8 +1,9 @@
 package com.yjyj.ecommerce.live.infrastructure.adapter.out.redis.user;
 
-import static com.example.mytv.common.CacheNames.USER;
 
-import com.example.mytv.domain.user.User;
+import static com.yjyj.ecommerce.common.common.CacheNames.USER;
+
+import com.yjyj.ecommerce.live.domain.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.springframework.data.redis.core.RedisHash;

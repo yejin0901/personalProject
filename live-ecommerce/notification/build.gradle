@@ -8,18 +8,19 @@ plugins {
 bootJar { enabled = false }
 jar { enabled = true }
 
+
 dependencies {
     implementation project(':common')
+
+    // Lombok
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
 
     // payment/infra에 JPA Repository가 있으면 필요
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 
     // payment/representation에 Controller가 있으면 필요
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter'
 
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-
-    // Lombok
-    compileOnly 'org.projectlombok:lombok'
-    annotationProcessor 'org.projectlombok:lombok'
 }

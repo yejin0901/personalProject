@@ -1,7 +1,7 @@
 package com.yjyj.ecommerce.live.infrastructure.adapter.out.jpa.subscribe;
 
-import com.example.mytv.adapter.out.jpa.channel.ChannelJpaEntity;
-import com.example.mytv.adapter.out.jpa.user.UserJpaEntity;
+import com.yjyj.ecommerce.live.infrastructure.adapter.out.jpa.channel.ChannelJpaEntity;
+import com.yjyj.ecommerce.live.infrastructure.adapter.out.jpa.user.UserJpaEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;

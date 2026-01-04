@@ -1,10 +1,10 @@
 package com.yjyj.ecommerce.live.representation.listener;
 
-import com.example.mytv.adapter.out.jpa.subscribe.SubscribeJpaEntity;
-import com.example.mytv.adapter.out.jpa.subscribe.SubscribeJpaRepository;
-import com.example.mytv.application.port.out.MessagePort;
-import com.example.mytv.domain.message.NewVideoMessage;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.yjyj.ecommerce.live.application.port.out.MessagePort;
+import com.yjyj.ecommerce.live.domain.message.NewVideoMessage;
+import com.yjyj.ecommerce.live.infrastructure.adapter.out.jpa.subscribe.SubscribeJpaEntity;
+import com.yjyj.ecommerce.live.infrastructure.adapter.out.jpa.subscribe.SubscribeJpaRepository;
 import org.springframework.data.redis.connection.Message;
 import org.springframework.data.redis.connection.MessageListener;
 import org.springframework.stereotype.Service;

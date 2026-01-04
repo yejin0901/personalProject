@@ -3,6 +3,7 @@ import com.yjyj.ecommerce.live.application.port.in.SubscribeUseCase;
 import com.yjyj.ecommerce.live.application.port.out.LoadChannelPort;
 import com.yjyj.ecommerce.live.application.port.out.LoadUserPort;
 import com.yjyj.ecommerce.live.application.port.out.SubscribePort;
+import com.yjyj.ecommerce.live.domain.channel.Channel;
 import java.util.List;
 import org.springframework.stereotype.Service;
 

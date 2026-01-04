@@ -1,16 +1,16 @@
 package com.yjyj.ecommerce.live.infrastructure.adapter.out;
 
-import static com.example.mytv.common.CacheNames.SUBSCRIBE_CHANNEL_BY_USER;
-import static com.example.mytv.common.RedisKeyGenerator.getSubscribeChannelKey;
-import static com.example.mytv.common.RedisKeyGenerator.getSubscribeUserKey;
+import static com.yjyj.ecommerce.common.common.CacheNames.SUBSCRIBE_CHANNEL_BY_USER;
+import static com.yjyj.ecommerce.common.common.RedisKeyGenerator.getSubscribeChannelKey;
+import static com.yjyj.ecommerce.common.common.RedisKeyGenerator.getSubscribeUserKey;
 
-import com.example.mytv.adapter.out.jpa.channel.ChannelJpaEntity;
-import com.example.mytv.adapter.out.jpa.subscribe.SubscribeJpaEntity;
-import com.example.mytv.adapter.out.jpa.subscribe.SubscribeJpaRepository;
-import com.example.mytv.adapter.out.jpa.user.UserJpaEntity;
-import com.example.mytv.application.port.out.SubscribePort;
-import com.example.mytv.domain.channel.Channel;
-import com.example.mytv.domain.user.User;
+import com.yjyj.ecommerce.live.application.port.out.SubscribePort;
+import com.yjyj.ecommerce.live.domain.channel.Channel;
+import com.yjyj.ecommerce.live.domain.user.User;
+import com.yjyj.ecommerce.live.infrastructure.adapter.out.jpa.channel.ChannelJpaEntity;
+import com.yjyj.ecommerce.live.infrastructure.adapter.out.jpa.subscribe.SubscribeJpaEntity;
+import com.yjyj.ecommerce.live.infrastructure.adapter.out.jpa.subscribe.SubscribeJpaRepository;
+import com.yjyj.ecommerce.live.infrastructure.adapter.out.jpa.user.UserJpaEntity;
 import java.util.List;
 import java.util.UUID;
 import org.springframework.cache.annotation.CacheEvict;

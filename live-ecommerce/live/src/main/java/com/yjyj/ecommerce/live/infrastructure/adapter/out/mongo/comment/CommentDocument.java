@@ -1,6 +1,6 @@
 package com.yjyj.ecommerce.live.infrastructure.adapter.out.mongo.comment;
 
-import com.example.mytv.domain.comment.Comment;
+import com.yjyj.ecommerce.live.domain.comment.Comment;
 import jakarta.persistence.Id;
 import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;

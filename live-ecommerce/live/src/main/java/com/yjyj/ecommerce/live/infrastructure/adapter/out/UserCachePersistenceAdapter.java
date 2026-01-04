@@ -1,11 +1,11 @@
 package com.yjyj.ecommerce.live.infrastructure.adapter.out;
 
-import com.example.mytv.adapter.out.jpa.user.UserJpaEntity;
-import com.example.mytv.adapter.out.jpa.user.UserJpaRepository;
-import com.example.mytv.adapter.out.redis.user.UserRedisHash;
-import com.example.mytv.adapter.out.redis.user.UserRedisRepository;
-import com.example.mytv.application.port.out.LoadUserPort;
-import com.example.mytv.domain.user.User;
+import com.yjyj.ecommerce.live.application.port.out.LoadUserPort;
+import com.yjyj.ecommerce.live.domain.user.User;
+import com.yjyj.ecommerce.live.infrastructure.adapter.out.jpa.user.UserJpaEntity;
+import com.yjyj.ecommerce.live.infrastructure.adapter.out.jpa.user.UserJpaRepository;
+import com.yjyj.ecommerce.live.infrastructure.adapter.out.redis.user.UserRedisHash;
+import com.yjyj.ecommerce.live.infrastructure.adapter.out.redis.user.UserRedisRepository;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.stereotype.Component;

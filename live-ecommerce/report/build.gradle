@@ -1,0 +1,17 @@
+plugins {
+    id 'java-library'
+}
+
+dependencies {
+    // Lombok
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    // Spring (common에서 ResponseWrapper/ResponseEntity 쓰면 필요)
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter'
+
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+    // payment/infra에 JPA Repository가 있으면 필요
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+}

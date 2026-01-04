@@ -1,10 +1,10 @@
 package com.yjyj.ecommerce.live.infrastructure.adapter.out;
 
-import com.example.mytv.adapter.out.mongo.comment.CommentDocument;
-import com.example.mytv.adapter.out.mongo.comment.CommentMongoRepository;
-import com.example.mytv.application.port.out.CommentPort;
-import com.example.mytv.common.RedisKeyGenerator;
-import com.example.mytv.domain.comment.Comment;
+import com.yjyj.ecommerce.common.common.RedisKeyGenerator;
+import com.yjyj.ecommerce.live.application.port.out.CommentPort;
+import com.yjyj.ecommerce.live.domain.comment.Comment;
+import com.yjyj.ecommerce.live.infrastructure.adapter.out.mongo.comment.CommentDocument;
+import com.yjyj.ecommerce.live.infrastructure.adapter.out.mongo.comment.CommentMongoRepository;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;

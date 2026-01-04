@@ -1,6 +1,6 @@
 package com.yjyj.ecommerce.live.infrastructure.adapter.out.jpa.user;
 
-import com.example.mytv.domain.user.User;
+import com.yjyj.ecommerce.live.domain.user.User;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;

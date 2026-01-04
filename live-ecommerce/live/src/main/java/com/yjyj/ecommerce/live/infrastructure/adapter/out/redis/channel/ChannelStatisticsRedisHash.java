@@ -1,6 +1,6 @@
 package com.yjyj.ecommerce.live.infrastructure.adapter.out.redis.channel;
 
-import com.example.mytv.domain.channel.ChannelStatistics;
+import com.yjyj.ecommerce.live.domain.channel.ChannelStatistics;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.springframework.data.redis.core.RedisHash;

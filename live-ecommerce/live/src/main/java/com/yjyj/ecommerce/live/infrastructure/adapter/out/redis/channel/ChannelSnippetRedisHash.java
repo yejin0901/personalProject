@@ -1,6 +1,6 @@
 package com.yjyj.ecommerce.live.infrastructure.adapter.out.redis.channel;
 
-import com.example.mytv.domain.channel.ChannelSnippet;
+import com.yjyj.ecommerce.live.domain.channel.ChannelSnippet;
 import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
