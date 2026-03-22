@@ -32,11 +32,16 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter'
 
+    implementation "org.springframework.kafka:spring-kafka"
+
     // 1. Confluent Kafka Avro Serializer (여기에 KafkaAvroDeserializer가 포함됨)
     implementation 'io.confluent:kafka-avro-serializer:7.6.0'
 
     // 2. Apache Avro (Avro 스키마 및 객체 처리를 위해 필요)
     implementation 'org.apache.avro:avro:1.11.3'
+
+    // 보통 같이 필요 (스키마 레지스트리 사용 시)
+    implementation "io.confluent:kafka-schema-registry-client:7.6.1"
 
 
     // 1. Retrofit Core (retrofit2.Retrofit 관련)

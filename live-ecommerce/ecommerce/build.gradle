@@ -8,10 +8,13 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
     implementation 'org.springframework.boot:spring-boot-starter-web'     // 웹이면
     implementation 'org.springframework.boot:spring-boot-starter-aop'     // AopConfig 있으면
-    implementation 'org.springframework.boot:spring-boot-starter-cache'   // CacheConfig 있으면
+    implementation 'org.springframework.boot:spring-boot-starter-cache'
+
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    runtimeOnly 'com.mysql:mysql-connector-j'// CacheConfig 있으면
 
     implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
-    api 'org.springframework.boot:spring-boot-starter-data-redis'
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
 
 
     implementation 'org.springframework.boot:spring-boot-testcontainers' // 스프링 부트 3.1+ 권장
@@ -25,6 +28,10 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
 
     // 필요시 모듈 의존
-     implementation project(':common')
-    // implementation project(':payment')
+    implementation project(':common')
+    implementation project(':notification')
+    implementation project(':payment')
+    implementation project(':live')
+//    implementation project(':report')
+//    implementation project(':report-batch')
 }

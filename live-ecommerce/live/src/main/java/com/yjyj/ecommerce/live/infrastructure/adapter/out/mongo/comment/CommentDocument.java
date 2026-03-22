@@ -1,9 +1,9 @@
 package com.yjyj.ecommerce.live.infrastructure.adapter.out.mongo.comment;
 
 import com.yjyj.ecommerce.live.domain.comment.Comment;
-import jakarta.persistence.Id;
 import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
+import org.springframework.data.annotation.Id;
 import lombok.Getter;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;

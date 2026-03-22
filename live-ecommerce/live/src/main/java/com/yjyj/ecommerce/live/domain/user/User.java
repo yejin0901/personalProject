@@ -3,9 +3,11 @@ package com.yjyj.ecommerce.live.domain.user;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.Setter;
 
 @AllArgsConstructor
 @Getter
+@Setter
 @Builder
 public class User {
     private String id;

@@ -6,9 +6,12 @@ import com.yjyj.ecommerce.live.domain.comment.CommentResponse;
 import com.yjyj.ecommerce.live.domain.user.User;
 import com.yjyj.ecommerce.live.representation.in.api.dto.CommandResponse;
 import com.yjyj.ecommerce.live.representation.in.api.dto.CommentRequest;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import java.util.List;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -19,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/v1/comments")
+@Tag(name = "라이브 채널 댓글 API")
 public class CommentApiController {
     private final CommentUseCase commentUseCase;
 
@@ -27,8 +31,9 @@ public class CommentApiController {
     }
 
     @PostMapping
+    @Operation(summary = "라이브 채널 댓글 생성")
     CommandResponse createComment(
-        User user,
+        @ModelAttribute User user,
         @RequestBody CommentRequest commentRequest
     ) {
         var comment = commentUseCase.createComment(user, commentRequest);
@@ -36,8 +41,9 @@ public class CommentApiController {
     }
 
     @PutMapping("{commentId}")
+    @Operation(summary = "라이브 채널 댓글 수정")
     CommandResponse updateComment(
-        User user,
+        @ModelAttribute User user,
         @PathVariable String commentId,
         @RequestBody CommentRequest commentRequest
     ) {
@@ -46,21 +52,24 @@ public class CommentApiController {
     }
 
     @DeleteMapping("{commentId}")
+    @Operation(summary = "라이브 채널 댓글 삭제")
     void deleteComment(
-        User user,
+        @ModelAttribute User user,
         @PathVariable String commentId
     ) {
         commentUseCase.deleteComment(commentId, user);
     }
 
     @GetMapping(params = {"commentId"})
+    @Operation(summary = "라이브 채널 댓글 조회")
     CommentResponse getComment(@RequestParam String commentId) {
         return commentUseCase.getComment(commentId);
     }
 
     @GetMapping(value = "list", params = {"videoId", "order", "offset", "maxSize"})
+    @Operation(summary = "라이브 채널 댓글 리스트 조회")
     List<CommentResponse> listComments(
-        User user,
+        @ModelAttribute User user,
         @RequestParam String videoId,
         @RequestParam(defaultValue = "time") String order,
         @RequestParam String offset,
@@ -70,6 +79,7 @@ public class CommentApiController {
     }
 
     @GetMapping(value = "reply", params = {"parentId"})
+    @Operation(summary = "라이브 채널 대댓글 리스트 조회")
     List<CommentResponse> listReplyComments(
         @RequestParam String parentId,
         @RequestParam String offset,
