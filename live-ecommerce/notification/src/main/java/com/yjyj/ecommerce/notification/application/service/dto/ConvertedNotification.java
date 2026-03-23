@@ -1,0 +1,15 @@
+package com.yjyj.ecommerce.notification.application.service.dto;
+
+import com.yjyj.ecommerce.notification.domain.NotificationType;
+import java.time.Instant;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@Getter
+@AllArgsConstructor
+public abstract class ConvertedNotification {
+    protected String id;
+    protected NotificationType type;
+    protected Instant occurredAt;
+    protected Instant lastUpdatedAt;
+}
