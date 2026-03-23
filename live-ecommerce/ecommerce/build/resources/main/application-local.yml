@@ -1,0 +1,102 @@
+server:
+  port: 8080
+
+
+logging:
+  level:
+    org.springframework.boot.autoconfigure.mongo: DEBUG
+    org.springframework.data.mongodb: DEBUG
+    org.springframework.boot.autoconfigure: DEBUG
+
+
+
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:13306/ecommerce?serverTimezone=UTC&characterEncoding=UTF-8
+    username: local
+    password: local
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        jdbc:
+          batch_size: 1000
+        order_updates: true
+        order_inserts: true
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+    mongodb:
+      uri: mongodb://local:local@localhost:27017/admin?authSource=admin
+
+
+
+
+
+  # Kafka (Payment AVRO + Stream binder 공용 브로커)
+  kafka:
+    bootstrap-servers: localhost:19094
+    properties:
+      schema-registry-url: http://localhost:8085
+
+
+
+
+
+    # Payment(AVRO) producer/consumer 기본값 (Confluent serializer 쓸 때)
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+    consumer:
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+      group-id: settlements_1
+      properties:
+        specific.avro.reader: true
+
+  # ✅ Notification: Spring Cloud Stream 유지
+  cloud:
+    function:
+      definition: like;comment;follow
+    stream:
+      kafka:
+        binder:
+          brokers: localhost:19094
+      bindings:
+        comment-in-0:
+          destination: comment
+          group: notification-consumer
+          consumer:
+            max-attempts: 2
+        like-in-0:
+          destination: like
+          group: notification-consumer
+          consumer:
+            max-attempts: 2
+        follow-in-0:
+          destination: follow
+          group: notification-consumer
+          consumer:
+            max-attempts: 2
+
+  batch:
+    job:
+      enabled: false
+
+
+
+# 토픽/그룹 등 도메인 값은 app 아래로 (선택)
+app:
+  kafka:
+    payment:
+      settlements-topic: payment.settlements
+      settlements-group: settlements_1
+
+
