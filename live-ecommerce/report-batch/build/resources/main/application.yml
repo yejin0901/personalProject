@@ -1,0 +1,23 @@
+server:
+  port: 9091
+
+spring:
+  application:
+    name: report-batch
+  profiles:
+    default: local
+
+  batch:
+    job:
+      enabled: false
+    jdbc:
+      initialize-schema: always   # 개발용
+
+# 배치에서 redis/kafka/mongo 안 쓰면 false
+app:
+  kafka:
+    enabled: false
+  redis:
+    enabled: false
+  mongo:
+    enabled: false
