@@ -1,0 +1,141 @@
+<svg width="820" height="380" viewBox="0 0 820 380" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>Payment Module ERD</title>
+  <desc>purchase_order, order_items, payment_transaction, card_payment, payment_settlements 엔티티 관계 다이어그램</desc>
+
+  <defs>
+    <marker id="arr-p" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#534AB7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arr-t" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#1D9E75" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arr-g" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#888780" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <style>
+      text { font-family: ui-sans-serif, system-ui, sans-serif; }
+      .th  { font-size: 12px; font-weight: 700; }
+      .ts  { font-size: 10.5px; fill: #5F5E5A; }
+      .te  { font-size: 9.5px;  fill: #888780; font-style: italic; }
+      .lbl { font-size: 10px;   fill: #888780; }
+    </style>
+  </defs>
+
+  <rect width="820" height="380" fill="#ffffff"/>
+
+  <!-- ===================== purchase_order ===================== -->
+  <rect x="20" y="80" width="154" height="186" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.8"/>
+  <rect x="20" y="80" width="154" height="26" rx="8" fill="#CECBF6" stroke="none"/>
+  <rect x="20" y="96"  width="154" height="10" fill="#CECBF6" stroke="none"/>
+  <text class="th" x="97" y="97" text-anchor="middle" dominant-baseline="central" fill="#3C3489">purchase_order</text>
+  <text class="te" x="97" y="112" text-anchor="middle" dominant-baseline="central">Order.java · @Table</text>
+  <line x1="20" y1="119" x2="174" y2="119" stroke="#534AB7" stroke-width="0.5" opacity="0.4"/>
+  <text class="ts" x="30" y="134" dominant-baseline="central">order_id (PK, UUID)</text>
+  <text class="ts" x="30" y="151" dominant-baseline="central">name</text>
+  <text class="ts" x="30" y="168" dominant-baseline="central">phone_number</text>
+  <text class="ts" x="30" y="185" dominant-baseline="central">payment_id (FK)</text>
+  <text class="ts" x="30" y="202" dominant-baseline="central">total_price</text>
+  <text class="ts" x="30" y="219" dominant-baseline="central">order_state</text>
+  <!-- OrderStatus enum badge -->
+  <rect x="30" y="228" width="124" height="28" rx="4" fill="#F3F2FD" stroke="#534AB7" stroke-width="0.4"/>
+  <text class="te" x="92" y="236" text-anchor="middle" dominant-baseline="central" fill="#534AB7">ORDER_COMPLETED · PAYMENT_FULLFILL</text>
+  <text class="te" x="92" y="249" text-anchor="middle" dominant-baseline="central" fill="#534AB7">SHIPPING · PURCHASE_DECISION · CANCELLED</text>
+
+  <!-- ===================== order_items ===================== -->
+  <rect x="210" y="55" width="160" height="200" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.8"/>
+  <rect x="210" y="55" width="160" height="26" rx="8" fill="#CECBF6" stroke="none"/>
+  <rect x="210" y="71"  width="160" height="10" fill="#CECBF6" stroke="none"/>
+  <text class="th" x="290" y="72" text-anchor="middle" dominant-baseline="central" fill="#3C3489">order_items</text>
+  <text class="te" x="290" y="88" text-anchor="middle" dominant-baseline="central">OrderItem.java · @Table</text>
+  <line x1="210" y1="95" x2="370" y2="95" stroke="#534AB7" stroke-width="0.5" opacity="0.4"/>
+  <text class="ts" x="220" y="110" dominant-baseline="central">id (PK, IDENTITY)</text>
+  <text class="ts" x="220" y="127" dominant-baseline="central">order_id (FK)</text>
+  <text class="ts" x="220" y="144" dominant-baseline="central">item_idx</text>
+  <text class="ts" x="220" y="161" dominant-baseline="central">product_id (UUID)</text>
+  <text class="ts" x="220" y="178" dominant-baseline="central">product_name</text>
+  <text class="ts" x="220" y="195" dominant-baseline="central">product_price / size</text>
+  <text class="ts" x="220" y="212" dominant-baseline="central">amount / quantity</text>
+  <text class="ts" x="220" y="229" dominant-baseline="central">order_state</text>
+
+  <!-- ===================== payment_transaction ===================== -->
+  <rect x="408" y="55" width="172" height="200" rx="8" fill="#E1F5EE" stroke="#1D9E75" stroke-width="0.8"/>
+  <rect x="408" y="55" width="172" height="26" rx="8" fill="#9FE1CB" stroke="none"/>
+  <rect x="408" y="71"  width="172" height="10" fill="#9FE1CB" stroke="none"/>
+  <text class="th" x="494" y="72" text-anchor="middle" dominant-baseline="central" fill="#085041">payment_transaction</text>
+  <text class="te" x="494" y="88" text-anchor="middle" dominant-baseline="central">PaymentLedger.java · @Table</text>
+  <line x1="408" y1="95" x2="580" y2="95" stroke="#1D9E75" stroke-width="0.5" opacity="0.4"/>
+  <text class="ts" x="418" y="110" dominant-baseline="central">id (PK, IDENTITY)</text>
+  <text class="ts" x="418" y="127" dominant-baseline="central">payment_id (paymentKey)</text>
+  <text class="ts" x="418" y="144" dominant-baseline="central">method (CARD)</text>
+  <text class="ts" x="418" y="161" dominant-baseline="central">payment_status</text>
+  <text class="ts" x="418" y="178" dominant-baseline="central">total_amount</text>
+  <text class="ts" x="418" y="195" dominant-baseline="central">balance_amount</text>
+  <text class="ts" x="418" y="212" dominant-baseline="central">canceled_amount</text>
+  <text class="ts" x="418" y="229" dominant-baseline="central">pay_out_amount</text>
+  <!-- PaymentStatus enum badge -->
+  <rect x="418" y="238" width="152" height="12" rx="3" fill="#E1F5EE"/>
+  <text class="te" x="494" y="244" text-anchor="middle" dominant-baseline="central" fill="#1D9E75">DONE · CANCELED · PARTIAL_CANCELED · SETTLEMENTS_*</text>
+
+  <!-- ===================== card_payment ===================== -->
+  <rect x="408" y="285" width="172" height="82" rx="8" fill="#E1F5EE" stroke="#1D9E75" stroke-width="0.8"/>
+  <rect x="408" y="285" width="172" height="26" rx="8" fill="#9FE1CB" stroke="none"/>
+  <rect x="408" y="301"  width="172" height="10" fill="#9FE1CB" stroke="none"/>
+  <text class="th" x="494" y="302" text-anchor="middle" dominant-baseline="central" fill="#085041">card_payment</text>
+  <text class="te" x="494" y="318" text-anchor="middle" dominant-baseline="central">CardPayment extends TransactionType</text>
+  <line x1="408" y1="325" x2="580" y2="325" stroke="#1D9E75" stroke-width="0.5" opacity="0.4"/>
+  <text class="ts" x="418" y="340" dominant-baseline="central">payment_key (PK = FK)</text>
+  <text class="ts" x="418" y="357" dominant-baseline="central">card_number · approve_no · acquire_status</text>
+
+  <!-- ===================== payment_settlements ===================== -->
+  <rect x="618" y="80" width="182" height="200" rx="8" fill="#F1EFE8" stroke="#888780" stroke-width="0.8"/>
+  <rect x="618" y="80" width="182" height="26" rx="8" fill="#D3D1C7" stroke="none"/>
+  <rect x="618" y="96"  width="182" height="10" fill="#D3D1C7" stroke="none"/>
+  <text class="th" x="709" y="97" text-anchor="middle" dominant-baseline="central" fill="#2C2C2A">payment_settlements</text>
+  <text class="te" x="709" y="113" text-anchor="middle" dominant-baseline="central">PaymentSettlements.java · @Table</text>
+  <line x1="618" y1="120" x2="800" y2="120" stroke="#888780" stroke-width="0.5" opacity="0.4"/>
+  <text class="ts" x="628" y="135" dominant-baseline="central">id (PK, IDENTITY)</text>
+  <text class="ts" x="628" y="152" dominant-baseline="central">payment_id (paymentKey)</text>
+  <text class="ts" x="628" y="169" dominant-baseline="central">method (CARD)</text>
+  <text class="ts" x="628" y="186" dominant-baseline="central">settlements_status</text>
+  <text class="ts" x="628" y="203" dominant-baseline="central">total_amount</text>
+  <text class="ts" x="628" y="220" dominant-baseline="central">pay_out_amount</text>
+  <text class="ts" x="628" y="237" dominant-baseline="central">canceled_amount</text>
+  <text class="ts" x="628" y="254" dominant-baseline="central">sold_date / paid_out_date</text>
+
+  <!-- ===================== Relations ===================== -->
+
+  <!-- purchase_order 1 → N order_items -->
+  <line x1="174" y1="150" x2="209" y2="145" stroke="#534AB7" stroke-width="0.8" marker-end="url(#arr-p)"/>
+  <text class="lbl" x="189" y="143" text-anchor="middle" dominant-baseline="central">1:N</text>
+
+  <!-- order_items N → 1 purchase_order (cascade ALL) -->
+  <text class="lbl" x="192" y="157" text-anchor="middle" dominant-baseline="central">cascade ALL</text>
+
+  <!-- purchase_order.payment_id → payment_transaction.payment_id -->
+  <path d="M174 185 L390 185 L390 155 L407 155" fill="none" stroke="#1D9E75" stroke-width="0.8" marker-end="url(#arr-t)"/>
+  <text class="lbl" x="290" y="178" text-anchor="middle" dominant-baseline="central">paymentKey</text>
+
+  <!-- payment_transaction → card_payment (상속 + paymentKey FK) -->
+  <line x1="494" y1="255" x2="494" y2="284" stroke="#1D9E75" stroke-width="0.8" stroke-dasharray="5,3" marker-end="url(#arr-t)"/>
+  <text class="lbl" x="506" y="271" dominant-baseline="central">extends / FK</text>
+
+  <!-- payment_transaction → payment_settlements (paymentKey) -->
+  <line x1="580" y1="160" x2="617" y2="160" stroke="#888780" stroke-width="0.8" marker-end="url(#arr-g)"/>
+  <text class="lbl" x="596" y="153" text-anchor="middle" dominant-baseline="central">정산요청</text>
+
+  <!-- payment_settlements → payment_transaction (toPaymentLedger) -->
+  <line x1="617" y1="175" x2="580" y2="175" stroke="#888780" stroke-width="0.8" stroke-dasharray="4,3" marker-end="url(#arr-g)"/>
+  <text class="lbl" x="596" y="182" text-anchor="middle" dominant-baseline="central">toPaymentLedger()</text>
+
+  <!-- ===================== Legend ===================== -->
+  <rect x="20" y="345" width="10" height="10" rx="2" fill="#CECBF6" stroke="#534AB7" stroke-width="0.5"/>
+  <text class="ts" x="34" y="350" dominant-baseline="central">주문</text>
+  <rect x="80" y="345" width="10" height="10" rx="2" fill="#9FE1CB" stroke="#1D9E75" stroke-width="0.5"/>
+  <text class="ts" x="94" y="350" dominant-baseline="central">결제</text>
+  <rect x="140" y="345" width="10" height="10" rx="2" fill="#D3D1C7" stroke="#888780" stroke-width="0.5"/>
+  <text class="ts" x="154" y="350" dominant-baseline="central">정산</text>
+  <line x1="200" y1="350" x2="224" y2="350" stroke="#534AB7" stroke-width="0.8"/>
+  <text class="ts" x="228" y="350" dominant-baseline="central">연관/참조</text>
+  <line x1="310" y1="350" x2="334" y2="350" stroke="#1D9E75" stroke-width="0.8" stroke-dasharray="5,3"/>
+  <text class="ts" x="338" y="350" dominant-baseline="central">상속</text>
+</svg>
