@@ -22,7 +22,6 @@ live-ecommerce/
 ├── live-module        # 라이브 방송 도메인
 ├── payment-module     # 결제 도메인
 ├── notification-module # 알림 도메인
-└── batch-module       # 배치 처리 도메인
 ```
 
 ### 헥사고날 아키텍처 (Ports & Adapters)
@@ -79,12 +78,6 @@ live-ecommerce/
 - 알림 발송 처리 (이메일 / 앱 푸시 등)
 - 알림 이력 관리
 
-### 🗂️ Batch Module — 배치 처리
-![Batch Module ERD](./docs/batch_module_erd.svg)
-- Spring Batch 기반 대용량 데이터 정기 처리
-- 정산 집계, 만료 데이터 정리 등 스케줄 작업 수행
-- Step 단위 실패 복구 및 재처리 지원
-
 <br>
 
 ## 🎯 기술적 의사결정 및 도전 과제
@@ -99,7 +92,7 @@ live-ecommerce/
 ---
 
 ### 2. 멀티모듈 구조 설계
-**배경**: 라이브, 결제, 알림, 배치 기능이 하나의 모듈에 혼재할 경우 의존성 오염 및 빌드 복잡도가 증가하는 문제가 있습니다.
+**배경**: 라이브, 결제, 알림 기능이 하나의 모듈에 혼재할 경우 의존성 오염 및 빌드 복잡도가 증가하는 문제가 있습니다.
 
 **적용**: 각 도메인을 독립적인 모듈로 분리하고, 모듈 간 통신은 Kafka 이벤트를 통해서만 이루어지도록 설계했습니다.
 
@@ -146,7 +139,6 @@ docker-compose up -d
 ./gradlew :live-module:bootRun
 ./gradlew :payment-module:bootRun
 ./gradlew :notification-module:bootRun
-./gradlew :batch-module:bootRun
 ```
 
 ### 환경 변수 설정
